@@ -1,2 +1,3 @@
 include
 src
+gtest-all.o
