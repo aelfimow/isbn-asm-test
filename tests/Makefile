@@ -6,13 +6,16 @@ CXXFLAGS += -O2
 CXXFLAGS += -std=c++17
 
 CXXFLAGS += -I../googletest/include
-CXXFLAGS += -I../../isbn-asm/src
+CXXFLAGS += -I../../isbn-asm/isbn-10
+CXXFLAGS += -I../../isbn-asm/isbn-13
 
 GTEST_OBJ = ../googletest/gtest-all.o
-ISBN_FUNC_OBJ = ../../isbn-asm/src/*.o
+ISBN_FUNC_OBJ  = ../../isbn-asm/isbn-10/*.o
+ISBN_FUNC_OBJ += ../../isbn-asm/isbn-13/*.o
 
 OBJDIR = ./obj
 
 all:
 	${CXX} -c main.cpp -o ${OBJDIR}/main.o ${CXXFLAGS}
-	${CXX} ${GTEST_OBJ} ${ISBN_FUNC_OBJ} ${OBJDIR}/*.o -o cppasm-test.exe
+	${CXX} -c test-isbn-10.cpp -o ${OBJDIR}/test-isbn-10.o ${CXXFLAGS}
+	${CXX} ${GTEST_OBJ} ${ISBN_FUNC_OBJ} ${OBJDIR}/*.o -o isbn-test.exe
