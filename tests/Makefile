@@ -10,8 +10,8 @@ CXXFLAGS += -I../../isbn-asm/isbn-10
 CXXFLAGS += -I../../isbn-asm/isbn-13
 
 GTEST_OBJ = ../googletest/gtest-all.o
-ISBN_FUNC_OBJ  = ../../isbn-asm/isbn-10/*.o
-ISBN_FUNC_OBJ += ../../isbn-asm/isbn-13/*.o
+ISBN_FUNC_OBJ  = ../../isbn-asm/isbn-10/isbn-10.o
+ISBN_FUNC_OBJ += ../../isbn-asm/isbn-13/isbn-13.o
 
 OBJDIR = ./obj
 
