@@ -18,4 +18,5 @@ OBJDIR = ./obj
 all:
 	${CXX} -c main.cpp -o ${OBJDIR}/main.o ${CXXFLAGS}
 	${CXX} -c test-isbn-10.cpp -o ${OBJDIR}/test-isbn-10.o ${CXXFLAGS}
+	${CXX} -c test-isbn-13.cpp -o ${OBJDIR}/test-isbn-13.o ${CXXFLAGS}
 	${CXX} ${GTEST_OBJ} ${ISBN_FUNC_OBJ} ${OBJDIR}/*.o -o isbn-test.exe
