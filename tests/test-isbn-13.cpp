@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <isbn-13.h>
 
-static uint8_t golden_isb13(const uint8_t *numbers)
+static uint8_t golden_isbn13(const uint8_t *numbers)
 {
     size_t sum1 = 0;
 
@@ -35,7 +35,7 @@ TEST(ISBN13, A)
 {
     const uint8_t numbers[] = { 9, 7, 8, 3, 7, 6, 5, 7, 2, 7, 8, 1 };
 
-    const auto golden_result = golden_isb13(numbers);
+    const auto golden_result = golden_isbn13(numbers);
     EXPECT_EQ(golden_result, 8);
 
     const auto result = isbn13(numbers);
@@ -46,7 +46,7 @@ TEST(ISBN13, B)
 {
     const uint8_t numbers[] = { 9, 7, 8, 3, 8, 3, 1, 2, 0, 4, 3, 4 };
 
-    const auto golden_result = golden_isb13(numbers);
+    const auto golden_result = golden_isbn13(numbers);
     EXPECT_EQ(golden_result, 2);
 
     const auto result = isbn13(numbers);
@@ -57,7 +57,7 @@ TEST(ISBN13, C)
 {
     const uint8_t numbers[] = { 9, 7, 8, 1, 4, 3, 5, 1, 2, 2, 9, 6 };
 
-    const auto golden_result = golden_isb13(numbers);
+    const auto golden_result = golden_isbn13(numbers);
     EXPECT_EQ(golden_result, 3);
 
     const auto result = isbn13(numbers);
@@ -70,9 +70,9 @@ TEST(ISBN13, D)
     const uint8_t n2[] = { 9, 7, 8, 3, 8, 3, 1, 2, 0, 4, 3, 4 };
     const uint8_t n3[] = { 9, 7, 8, 3, 7, 6, 5, 7, 2, 7, 8, 1 };
 
-    const auto gr1 = golden_isb13(n1);
-    const auto gr2 = golden_isb13(n2);
-    const auto gr3 = golden_isb13(n3);
+    const auto gr1 = golden_isbn13(n1);
+    const auto gr2 = golden_isbn13(n2);
+    const auto gr3 = golden_isbn13(n3);
 
     const auto r1 = isbn13(n1);
     const auto r2 = isbn13(n2);
