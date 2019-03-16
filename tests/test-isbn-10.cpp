@@ -43,3 +43,20 @@ TEST(ISBN10, B)
     const auto result = isbn10(numbers);
     EXPECT_EQ(result, 7);
 }
+
+TEST(ISBN10, C)
+{
+    const uint8_t n1[] = { 3, 8, 6, 6, 8, 0, 1, 9, 2 };
+    const uint8_t n2[] = { 3, 6, 8, 0, 0, 8, 7, 8, 3 };
+
+    const auto gr1 = golden_isbn10(n1);
+    const auto gr2 = golden_isbn10(n2);
+
+    const auto r1 = isbn10(n1);
+    const auto r2 = isbn10(n2);
+
+    EXPECT_EQ(gr1, 0);
+    EXPECT_EQ(gr2, 7);
+    EXPECT_EQ(r1, 0);
+    EXPECT_EQ(r2, 7);
+}
