@@ -86,3 +86,14 @@ TEST(ISBN13, D)
     EXPECT_EQ(r2, 2);
     EXPECT_EQ(r3, 8);
 }
+
+TEST(ISBN13, E)
+{
+    const uint8_t numbers[] = { 9, 7, 8, 3, 6, 4, 2, 3, 7, 7, 1, 3 };
+
+    const auto golden_result = golden_isbn13(numbers);
+    EXPECT_EQ(golden_result, 6);
+
+    const auto result = isbn13(numbers);
+    EXPECT_EQ(result, 6);
+}
